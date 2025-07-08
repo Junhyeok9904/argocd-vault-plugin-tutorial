@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: {{ .Values.postDeployMessage }}
+  name: busybox-message-pod # Generated pod name
   labels:
     app: busybox-pod
 spec:
@@ -11,3 +11,6 @@ spec:
       imagePullPolicy: IfNotPresent
       command: ["/bin/sh", "-c"]
       args: ["while true; do echo hi; sleep 5; done"]
+      env:
+        - name: POST_DEPLOY_MESSAGE # Environment variable name
+          value: "{{ .Values.postDeployMessage }}" # Placeholder for the message
