@@ -587,10 +587,10 @@ configs:
               - "find . -name 'Chart.yaml' && find . -name 'values.yaml'"
         generate:
           command:
-            - sh
+            - bash
             - "-c"
             - |
-              helm template $ARGOCD_APP_NAME --include-crds . |
+              helm template $ARGOCD_APP_NAME -n $ARGOCD_APP_NAMESPACE -f <(echo "$ARGOCD_ENV_HELM_VALUES") . |
               argocd-vault-plugin generate -
         lockRepo: false
       # --- First plugin
