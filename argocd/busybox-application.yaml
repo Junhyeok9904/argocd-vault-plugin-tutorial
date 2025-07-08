@@ -7,7 +7,7 @@ spec:
     namespace: default
     server: https://kubernetes.default.svc
   source:
-    path: helm/busybox-chart-test
+    path: helm\busybox-chart-test
     repoURL: https://github.com/Junhyeok9904/argocd-vault-plugin-tutorial.git
     targetRevision: master
     plugin:
