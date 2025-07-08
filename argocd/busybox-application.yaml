@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test
+  name: test2
 spec:
   destination:
     namespace: default
@@ -9,7 +9,7 @@ spec:
   source:
     path: helm/busybox-chart-test
     repoURL: https://github.com/Junhyeok9904/argocd-vault-plugin-tutorial.git
-    targetRevision: main
+    targetRevision: master
     plugin:
       name: avp-helm
       env:
