@@ -1,0 +1,5 @@
+export VAULT_ADDR="http://10.244.0.10:8200"
+export AVP_TYPE="vault"
+export AVP_AUTH_TYPE="approle"
+export AVP_ROLE_ID="836689b9-65f2-6057-fee7-37d3279cb361"
+export AVP_SECRET_ID="c46ab723-2822-c494-41e6-6b0ae53c7bfc"

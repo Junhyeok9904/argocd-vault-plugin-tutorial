@@ -1,0 +1,2 @@
+AVP_ROLE_ID_EXAMPLE="your-example-role-id"
+AVP_SECRET_ID_EXAMPLE="your-example-secret-id"

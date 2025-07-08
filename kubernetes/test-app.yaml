@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app
+  labels:
+    app: test-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-app
+  template:
+    metadata:
+      labels:
+        app: test-app
+    spec:
+      containers:
+      - name: test-container
+        image: alpine/git
+        command: ["sh", "-c", "echo Hello from test-app && sleep 3600"]
+        env:
+        - name: VAULT_PASSWORD
+          value: <path:secret/data/busybox-messages#message>
