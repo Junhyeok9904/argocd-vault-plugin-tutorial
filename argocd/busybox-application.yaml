@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    path: helm\busybox-chart-test
+    repoURL: https://github.com/Junhyeok9904/argocd-vault-plugin-tutorial.git
+    targetRevision: main
+    plugin:
+      name: avp-helm
+      env:
+        - name: VAULT_ADDR
+          value: http://10.244.0.10:8200
+        - name: AVP_TYPE
+          value: vault
+        - name: AVP_AUTH_TYPE
+          value: approle
+        - name: AVP_ROLE_ID
+          value: 836689b9-65f2-6057-fee7-37d3279cb361
+        - name: AVP_SECRET_ID
+          value: c46ab723-2822-c494-41e6-6b0ae53c7bfc
+        - name: HELM_ARGS
+          value: -f values-vault.yaml
+  project: default
